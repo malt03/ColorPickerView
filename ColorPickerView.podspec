@@ -20,6 +20,8 @@ You can easily create a color picker with an original image on interface builder
   s.author           = { "Koji Murata" => "malt.koji@gmail.com" }
   s.source           = { :git => "https://github.com/malt03/ColorPickerView.git", :tag => s.version.to_s }
 
+  s.xcconfig         = { 'CLANG_MODULES_AUTOLINK' => 'YES' }
+
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
