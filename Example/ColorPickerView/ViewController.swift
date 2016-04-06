@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import ColorPickerView
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ColorPickerViewDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+  @IBOutlet weak var pickerView: ColorPickerView! {
+    didSet {
+      pickerView.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+  }
+  
+  func colorPicker(colorPicker: ColorPickerView, didPickColor color: UIColor, touchPoint point: CGPoint) {
+    view.backgroundColor = color
+  }
 }
-
