@@ -9,22 +9,16 @@
 Pod::Spec.new do |s|
   s.name             = "ColorPickerView"
   s.version          = "0.1.0"
-  s.summary          = "A short description of ColorPickerView."
+  s.summary          = "You can easily create a color picker with an original image."
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+You can easily create a color picker with an original image on interface builder.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/ColorPickerView"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/malt03/ColorPickerView"
   s.license          = 'MIT'
-  s.author           = { "Koji Murata" => "koji.murata@dena.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ColorPickerView.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Koji Murata" => "malt.koji@gmail.com" }
+  s.source           = { :git => "https://github.com/malt03/ColorPickerView.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -34,7 +28,5 @@ Pod::Spec.new do |s|
     'ColorPickerView' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'ImageColorPicker'
 end
