@@ -9,7 +9,7 @@
 import UIKit
 import ImageColorPicker
 
-public protocol ColorPickerViewDelegate {
+public protocol ColorPickerViewDelegate: class {
   func colorPicker(colorPicker: ColorPickerView, didPickColor color: UIColor, touchPoint point: CGPoint)
 }
 
@@ -27,7 +27,7 @@ public class ColorPickerView: UIImageView {
   @IBInspectable public var forcePointX: CGFloat = -1 // 0.0 - 1.0 or minus value means nil
   @IBInspectable public var forcePointY: CGFloat = -1 // 0.0 - 1.0 or minus value means nil
   
-  public var delegate: ColorPickerViewDelegate?
+  public weak var delegate: ColorPickerViewDelegate?
   
   private var isPicking = false
   private var picker = ImageColorPicker()
