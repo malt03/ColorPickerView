@@ -35,7 +35,7 @@ public class ColorPickerView: UIImageView {
   override public var image: UIImage? {
     get { return super.image }
     set {
-      super.image = image
+      super.image = newValue
       initForColorPicker()
     }
   }
