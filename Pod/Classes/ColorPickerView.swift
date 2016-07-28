@@ -64,7 +64,7 @@ public class ColorPickerView: UIImageView {
     for x in 0..<Int(bounds.width) {
       for y in 0..<Int(bounds.height) {
         var p = CGPoint(x: x, y: y)
-        let c = colorPickFromPicker(&p)
+        guard let c = colorPickFromPicker(&p) else { continue }
         if CGColorEqualToColor(c.CGColor, color.CGColor) {
           delegate?.colorPicker(self, didPickColor: color, touchPoint: p)
           return p
@@ -78,7 +78,8 @@ public class ColorPickerView: UIImageView {
   
   public func pick(point: CGPoint) {
     var p = point
-    color = colorPickFromPicker(&p)
+    guard let c = colorPickFromPicker(&p) else { return }
+    color = c
     delegate?.colorPicker(self, didPickColor: color, touchPoint: p)
   }
   
@@ -106,12 +107,12 @@ public class ColorPickerView: UIImageView {
     isPicking = false
   }
   
-  private func colorPickFromPicker(inout point: CGPoint) -> UIColor {
+  private func colorPickFromPicker(inout point: CGPoint) -> UIColor? {
     point.x = forcePointX >= 0 ? forcePointX * bounds.width : point.x
     point.y = forcePointY >= 0 ? forcePointY * bounds.height : point.y
     point.x = min(max(point.x, leftPickableInset), bounds.width - rightPickableInset)
     point.y = min(max(point.y, topPickableInset), bounds.height - bottomPickableInset)
-    return picker.pick(&point)!
+    return picker.pick(&point)
   }
   
   override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
