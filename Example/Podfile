@@ -1,12 +1,6 @@
-source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'ColorPickerView_Example', :exclusive => true do
+target 'ColorPickerView_Example' do
+  pod 'ImageColorPicker', git: 'https://github.com/malt03/ImageColorPicker.git', tag: '0.2.0-beta1'
   pod 'ColorPickerView', :path => '../'
-end
-
-target 'ColorPickerView_Tests', :exclusive => true do
-  pod 'ColorPickerView', :path => '../'
-
-  
 end

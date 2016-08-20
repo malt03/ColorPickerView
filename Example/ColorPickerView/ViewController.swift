@@ -17,7 +17,7 @@ class ViewController: UIViewController, ColorPickerViewDelegate {
     }
   }
   
-  func colorPicker(colorPicker: ColorPickerView, didPickColor color: UIColor, touchPoint point: CGPoint) {
+  func colorPicker(_ colorPicker: ColorPickerView, didPickColor color: UIColor, touchPoint point: CGPoint) {
     view.backgroundColor = color
   }
 }

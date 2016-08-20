@@ -1,17 +1,28 @@
 PODS:
-  - ColorPickerView (0.1.0):
+  - ColorPickerView (0.2.1):
     - ImageColorPicker
-  - ImageColorPicker (0.1.0)
+  - ImageColorPicker (0.2.0-beta1)
 
 DEPENDENCIES:
   - ColorPickerView (from `../`)
+  - ImageColorPicker (from `https://github.com/malt03/ImageColorPicker.git`, tag `0.2.0-beta1`)
 
 EXTERNAL SOURCES:
   ColorPickerView:
     :path: "../"
+  ImageColorPicker:
+    :git: https://github.com/malt03/ImageColorPicker.git
+    :tag: 0.2.0-beta1
+
+CHECKOUT OPTIONS:
+  ImageColorPicker:
+    :git: https://github.com/malt03/ImageColorPicker.git
+    :tag: 0.2.0-beta1
 
 SPEC CHECKSUMS:
-  ColorPickerView: 83687c06b7efbb1e25decbc608bb8d2e5d5a4b7b
-  ImageColorPicker: b951b4ea712c70bcbaeff2d7e2869899f3460ac6
+  ColorPickerView: 461ff072c8fbb75f2bc7eb7d4d15894c5cf4fb04
+  ImageColorPicker: 9ca9a33fc0496f646d467d8d0754f80d9f0344aa
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: c22479b7612a9d208b7efa4570633f6ab30e6df0
+
+COCOAPODS: 1.1.0.beta.1

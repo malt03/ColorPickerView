@@ -10,29 +10,29 @@ import UIKit
 import ImageColorPicker
 
 public protocol ColorPickerViewDelegate: class {
-  func colorPicker(colorPicker: ColorPickerView, didPickColor color: UIColor, touchPoint point: CGPoint)
+  func colorPicker(_ colorPicker: ColorPickerView, didPickColor color: UIColor, touchPoint point: CGPoint)
 }
 
-public class ColorPickerView: UIImageView {
-  public var color = UIColor.clearColor()
+open class ColorPickerView: UIImageView {
+  open var color = UIColor.clear
   
-  @IBInspectable public var topTouchableInset: CGFloat = 0
-  @IBInspectable public var leftTouchableInset: CGFloat = 0
-  @IBInspectable public var bottomTouchableInset: CGFloat = 0
-  @IBInspectable public var rightTouchableInset: CGFloat = 0
-  @IBInspectable public var topPickableInset: CGFloat = 0
-  @IBInspectable public var leftPickableInset: CGFloat = 0
-  @IBInspectable public var bottomPickableInset: CGFloat = 0
-  @IBInspectable public var rightPickableInset: CGFloat = 0
-  @IBInspectable public var forcePointX: CGFloat = -1 // 0.0 - 1.0 or minus value means nil
-  @IBInspectable public var forcePointY: CGFloat = -1 // 0.0 - 1.0 or minus value means nil
+  @IBInspectable open var topTouchableInset: CGFloat = 0
+  @IBInspectable open var leftTouchableInset: CGFloat = 0
+  @IBInspectable open var bottomTouchableInset: CGFloat = 0
+  @IBInspectable open var rightTouchableInset: CGFloat = 0
+  @IBInspectable open var topPickableInset: CGFloat = 0
+  @IBInspectable open var leftPickableInset: CGFloat = 0
+  @IBInspectable open var bottomPickableInset: CGFloat = 0
+  @IBInspectable open var rightPickableInset: CGFloat = 0
+  @IBInspectable open var forcePointX: CGFloat = -1 // 0.0 - 1.0 or minus value means nil
+  @IBInspectable open var forcePointY: CGFloat = -1 // 0.0 - 1.0 or minus value means nil
   
-  public weak var delegate: ColorPickerViewDelegate?
+  open weak var delegate: ColorPickerViewDelegate?
   
   private var isPicking = false
   private var picker = ImageColorPicker()
   
-  override public var image: UIImage? {
+  override open var image: UIImage? {
     get { return super.image }
     set {
       super.image = newValue
@@ -60,12 +60,12 @@ public class ColorPickerView: UIImageView {
     initForColorPicker()
   }
   
-  public func getPoint(color: UIColor) -> CGPoint? {
+  open func getPoint(_ color: UIColor) -> CGPoint? {
     for x in 0..<Int(bounds.width) {
       for y in 0..<Int(bounds.height) {
         var p = CGPoint(x: x, y: y)
         let c = colorPickFromPicker(&p)
-        if CGColorEqualToColor(c.CGColor, color.CGColor) {
+        if c.cgColor == color.cgColor {
           delegate?.colorPicker(self, didPickColor: color, touchPoint: p)
           return p
         }
@@ -76,7 +76,7 @@ public class ColorPickerView: UIImageView {
     return nil
   }
   
-  public func pick(point: CGPoint) {
+  open func pick(_ point: CGPoint) {
     var p = point
     color = colorPickFromPicker(&p)
     delegate?.colorPicker(self, didPickColor: color, touchPoint: p)
@@ -84,29 +84,29 @@ public class ColorPickerView: UIImageView {
   
   // MARK: 初期化
   private func initForColorPicker() {
-    userInteractionEnabled = true
+    isUserInteractionEnabled = true
     picker.setImage(image)
   }
   
   // MARK: カラーピック
-  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     isPicking = true
-    pick(touches.first!.locationInView(self))
+    pick(touches.first!.location(in: self))
   }
   
-  override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    pick(touches.first!.locationInView(self))
+  override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    pick(touches.first!.location(in: self))
   }
   
-  override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     isPicking = false
   }
   
-  override public func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+  override open func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
     isPicking = false
   }
   
-  private func colorPickFromPicker(inout point: CGPoint) -> UIColor {
+  private func colorPickFromPicker(_ point: inout CGPoint) -> UIColor {
     point.x = forcePointX >= 0 ? forcePointX * bounds.width : point.x
     point.y = forcePointY >= 0 ? forcePointY * bounds.height : point.y
     point.x = min(max(point.x, leftPickableInset), bounds.width - rightPickableInset)
@@ -114,7 +114,7 @@ public class ColorPickerView: UIImageView {
     return picker.pick(&point)!
   }
   
-  override public func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+  override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
     if isPicking {
       return true
     }
@@ -123,6 +123,6 @@ public class ColorPickerView: UIImageView {
     rect.origin.y += topTouchableInset
     rect.size.width -= (leftTouchableInset + rightTouchableInset)
     rect.size.height -= (topTouchableInset + bottomTouchableInset)
-    return CGRectContainsPoint(rect, point)
+    return rect.contains(point)
   }
 }
