@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ColorPickerView"
-  s.version          = "0.2.1"
+  s.version          = "0.3.0-beta1"
   s.summary          = "You can easily create a color picker with an original image."
 
   s.description      = <<-DESC
