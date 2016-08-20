@@ -26,5 +26,5 @@ You can easily create a color picker with an original image on interface builder
   s.source_files = 'Pod/Classes/**/*'
 
   s.frameworks   = "UIKit"
-  s.dependency 'ImageColorPicker'
+  s.dependency 'ImageColorPicker', '~>0.2.0-beta1'
 end

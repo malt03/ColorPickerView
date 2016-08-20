@@ -1,6 +1,6 @@
 {
   "name": "ColorPickerView",
-  "version": "0.2.1",
+  "version": "0.3.0-beta1",
   "summary": "You can easily create a color picker with an original image.",
   "description": "You can easily create a color picker with an original image on interface builder.",
   "homepage": "https://github.com/malt03/ColorPickerView",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/malt03/ColorPickerView.git",
-    "tag": "0.2.1"
+    "tag": "0.3.0-beta1"
   },
   "platforms": {
     "ios": "8.0"
@@ -20,7 +20,7 @@
   "frameworks": "UIKit",
   "dependencies": {
     "ImageColorPicker": [
-
+      "~>0.2.0-beta1"
     ]
   }
 }

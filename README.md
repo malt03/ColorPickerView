@@ -37,6 +37,7 @@ ColorPickerView is available through [CocoaPods](http://cocoapods.org). To insta
 it, simply add the following line to your Podfile:
 
 ```ruby
+pod 'ImageColorPicker', git: 'https://github.com/malt03/ImageColorPicker.git', tag: '0.2.0-beta1'
 pod "ColorPickerView"
 ```
 

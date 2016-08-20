@@ -1,6 +1,6 @@
 PODS:
-  - ColorPickerView (0.2.1):
-    - ImageColorPicker
+  - ColorPickerView (0.3.0-beta1):
+    - ImageColorPicker (~> 0.2.0-beta1)
   - ImageColorPicker (0.2.0-beta1)
 
 DEPENDENCIES:
@@ -20,7 +20,7 @@ CHECKOUT OPTIONS:
     :tag: 0.2.0-beta1
 
 SPEC CHECKSUMS:
-  ColorPickerView: 461ff072c8fbb75f2bc7eb7d4d15894c5cf4fb04
+  ColorPickerView: c47606dc43a1fd8dc88c56ea8a18c35452b3ee0e
   ImageColorPicker: 9ca9a33fc0496f646d467d8d0754f80d9f0344aa
 
 PODFILE CHECKSUM: c22479b7612a9d208b7efa4570633f6ab30e6df0
